@@ -1,0 +1,75 @@
+{
+    "ledger": [
+      {
+        "id": 1,
+        "type": "income",
+        "money": 5000,
+        "date": "2024-12-01",
+        "useFor": "salary"
+      },
+      {
+        "id": 2,
+        "type": "pay",
+        "money": 150,
+        "date": "2024-12-02",
+        "useFor": "drinks"
+      },
+      {
+        "id": 3,
+        "type": "pay",
+        "money": 200,
+        "date": "2024-12-03",
+        "useFor": "dessert"
+      },
+      {
+        "id": 4,
+        "type": "pay",
+        "money": 1200,
+        "date": "2024-12-05",
+        "useFor": "travel"
+      },
+      {
+        "id": 5,
+        "type": "income",
+        "money": 2000,
+        "date": "2024-12-06",
+        "useFor": "freelance"
+      },
+      {
+        "id": 6,
+        "type": "pay",
+        "money": 300,
+        "date": "2024-12-07",
+        "useFor": "groceries"
+      },
+      {
+        "id": 7,
+        "type": "pay",
+        "money": 800,
+        "date": "2024-12-08",
+        "useFor": "rent"
+      },
+      {
+        "id": 8,
+        "type": "income",
+        "money": 1000,
+        "date": "2024-12-09",
+        "useFor": "gift"
+      },
+      {
+        "id": 9,
+        "type": "pay",
+        "money": 450,
+        "date": "2024-12-10",
+        "useFor": "utilities"
+      },
+      {
+        "id": 10,
+        "type": "pay",
+        "money": 220,
+        "date": "2024-12-11",
+        "useFor": "dining"
+      }
+    ]
+  }
+  
