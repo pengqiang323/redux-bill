@@ -29,7 +29,6 @@ const Month = () => {
 
   // 将当前选择的帐单数据，进行计算，获取 支出 /  收入  /  结余的合计结果，页面将结果渲染出来
   const monthResult = useMemo(()=>{
-    console.log("aa")
     // 支出 /  收入  /  结余
     const pay = currentMonthList.filter(item => item.type==='pay').reduce((a, c) => a + c.money,0)
     const income = currentMonthList.filter(item => item.type==='income').reduce((a, c) => a + c.money,0)
@@ -61,16 +60,16 @@ const Month = () => {
     setMonthList(monthGroup[formatDate])
   }
 
-    // 当前月按照日分组
-    const dayGroup = useMemo(()=>{
-      // return 出去计算之后的值
-      const groupData = _.groupBy(currentMonthList,(item => dayjs(item.date).format('YYYY-MM-DD')))
-      const keys = Object.keys(groupData)
-      return {
-        groupData,
-        keys
-      }
-    },[currentMonthList])
+  // 当前月按照日分组
+  const dayGroup = useMemo(()=>{
+    // return 出去计算之后的值
+    const groupData = _.groupBy(currentMonthList,(item => dayjs(item.date).format('YYYY-MM-DD')))
+    const keys = Object.keys(groupData)
+    return {
+      groupData,
+      keys
+    }
+  },[currentMonthList])
 
   return (
     <div className="monthlyBill">
@@ -117,7 +116,7 @@ const Month = () => {
         {/** 单日列表渲染 */}
         {
           dayGroup.keys.map(key =>{
-            return <DailyBill date={key} billList={dayGroup.groupData[key]} />
+            return <DailyBill key={key} date={key} billList={dayGroup.groupData[key]} />
           })
         }
        

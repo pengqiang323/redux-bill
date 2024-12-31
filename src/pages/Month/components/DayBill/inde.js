@@ -1,7 +1,8 @@
 import classNames from 'classnames'
 import './index.scss'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { billTypeToName } from '@/contants/index'
+import Icon from '@/components/Icon'
 
 const DailyBill = ({date,billList}) => {
     // 将当前选择的帐单数据，进行计算，获取 支出 /  收入  /  结余的合计结果，页面将结果渲染出来
@@ -15,32 +16,38 @@ const DailyBill = ({date,billList}) => {
         total: pay+income
     }
     },[billList])
+
+    const [visible, setVisible] = useState(false)
     return (
         <div className={classNames('dailyBill')}>
             <div className="header">
                 <div className="dateIcon">
                 <span className="date">{date}</span>
-                <span className={classNames('arrow')}></span>
+                {/** expand，代表箭头的朝向 */}
+                <span className={classNames('arrow',visible && 'expand')} onClick={()=>setVisible(!visible)}></span>
                 </div>
                 <div className="oneLineOverview">
-                <div className="pay">
-                    <span className="type">支出</span>
-                    <span className="money">{dayResult.pay.toFixed(2)}</span>
-                </div>
-                <div className="income">
-                    <span className="type">收入</span>
-                    <span className="money">{dayResult.income.toFixed(2)}</span>
-                </div>
-                <div className="balance">
-                    <span className="money">{dayResult.total.toFixed(2)}</span>
-                    <span className="type">结余</span>
-                </div>
+                    <div className="pay">
+                        <span className="type">支出</span>
+                        <span className="money">{dayResult.pay.toFixed(2)}</span>
+                    </div>
+                    <div className="income">
+                        <span className="type">收入</span>
+                        <span className="money">{dayResult.income.toFixed(2)}</span>
+                    </div>
+                    <div className="balance">
+                        <span className="money">{dayResult.total.toFixed(2)}</span>
+                        <span className="type">结余</span>
+                    </div>
                 </div>
             </div>
-            <div className="billList">
+
+            {/**单日列表 */}
+            <div className="billList" style={{display: visible ? 'block' : 'none'}}>
                 {billList.map(item => {
                     return (
                     <div className="bill" key={item.id}>
+                        <Icon type={item.useFor}/>
                         <div className="detail">
                         <div className="billType">{billTypeToName[item.useFor]}</div>
                         </div>
