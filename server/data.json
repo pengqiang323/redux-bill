@@ -90,6 +90,27 @@
       "money": 10,
       "date": "2024-12-31",
       "useFor": "financial"
+    },
+    {
+      "id": "4a0d",
+      "type": "pay",
+      "money": -10,
+      "date": "2025-01-02",
+      "useFor": "dessert"
+    },
+    {
+      "id": "bd0d",
+      "type": "income",
+      "money": 10,
+      "date": "2025-01-02",
+      "useFor": "cashgift"
+    },
+    {
+      "id": "285d",
+      "type": "income",
+      "money": 100,
+      "date": "2025-01-02",
+      "useFor": "overtimepay"
     }
   ]
 }
